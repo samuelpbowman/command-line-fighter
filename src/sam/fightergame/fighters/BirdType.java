@@ -1,33 +1,25 @@
-package sam.fightergame.characters;
+package sam.fightergame.fighters;
 
 /**
  * Concrete implementation of a character
  * of type Bird
  * @author Sam Bowman
  */
-public class BirdType extends Character {
+@SuppressWarnings("unused")
+public class BirdType extends Fighter {
 
     public BirdType(String name, int hp) {
         super(name,hp);
         super.type = Type.BIRD;
-        super.basicAttack = 50;
-        super.specialAttack = 70;
+        super.basicDamage = 50;
+        super.specialDamage = 70;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void basicAttack() {
-        //TODO
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void specialAttack() {
-        //TODO
+    public BirdType(String name) {
+        super(name,1000);
+        super.type = Type.BIRD;
+        super.basicDamage = 50;
+        super.specialDamage = 70;
     }
 
     @Override
@@ -40,37 +32,21 @@ public class BirdType extends Character {
 
     /**
      * {@inheritDoc}
-     */
-    @Override
-    public void dealDamage(Character character) {
-        //TODO
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void takeDamage(int damage) {
-
-    }
-
-    /**
-     * {@inheritDoc}
      * Bird types perform very well against ground and water
      * types and poorly against fire types.
      */
     @Override
-    public Matchup compareTo(Character character) {
-        switch(character.getType()) {
+    public Matchup compareTo(Fighter fighter) {
+        switch(fighter.getType()) {
             case FIRE:
                 return Matchup.WEAK;
             case WATER:
                 return Matchup.STRONG;
-            case BIRD:
-                return Matchup.NEUTRAL;
             case GROUND:
                 return Matchup.DOMINANT;
+            case BIRD:
+            default:
+                return Matchup.NEUTRAL;
         }
-        return null;
     }
 }

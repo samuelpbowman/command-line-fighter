@@ -1,33 +1,25 @@
-package sam.fightergame.characters;
+package sam.fightergame.fighters;
 
 /**
  * Concrete implementation of a character
  * of type Fire
  * @author Sam Bowman
  */
-public class FireType extends Character {
+@SuppressWarnings("unused")
+public class FireType extends Fighter {
 
     public FireType(String name, int hp) {
         super(name,hp);
         super.type = Type.FIRE;
-        super.basicAttack = 50;
-        super.specialAttack = 70;
+        super.basicDamage = 50;
+        super.specialDamage = 70;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void basicAttack() {
-        //TODO
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void specialAttack() {
-        //TODO
+    public FireType(String name) {
+        super(name,1000);
+        super.type = Type.FIRE;
+        super.basicDamage = 50;
+        super.specialDamage = 70;
     }
 
     @Override
@@ -40,37 +32,21 @@ public class FireType extends Character {
 
     /**
      * {@inheritDoc}
-     */
-    @Override
-    public void dealDamage(Character character) {
-        //TODO
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void takeDamage(int damage) {
-
-    }
-
-    /**
-     * {@inheritDoc}
      * Fire performs well against bird and ground types
      * but poorly against water
      */
     @Override
-    public Matchup compareTo(Character character) {
-        switch(character.getType()) {
-            case FIRE:
-                return Matchup.NEUTRAL;
+    public Matchup compareTo(Fighter fighter) {
+        switch(fighter.getType()) {
             case WATER:
                 return Matchup.WEAK;
             case BIRD:
                 return Matchup.DOMINANT;
             case GROUND:
                 return Matchup.STRONG;
+            case FIRE:
+            default:
+                return Matchup.NEUTRAL;
         }
-        return null;
     }
 }

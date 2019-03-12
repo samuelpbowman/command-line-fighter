@@ -1,12 +1,10 @@
-package sam.fightergame.characters;
+package sam.fightergame.fighters;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class BirdTypeTest {
+class GroundTypeTest {
 
     @BeforeEach
     void setUp() {
@@ -33,6 +31,6 @@ class BirdTypeTest {
     }
 
     @Test
-    void compareTo() {
+    void compareToTest() {
     }
 }

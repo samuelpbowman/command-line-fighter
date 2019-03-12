@@ -1,20 +1,21 @@
-package sam.fightergame.characters;
+package sam.fightergame.fighters;
 
 /**
  * Abstract class representing a character object
  * for a fighter game in its purest form.
  * @author Sam Bowman
  */
-public abstract class Character {
+@SuppressWarnings({"unused", "WeakerAccess"})
+public abstract class Fighter {
 
     private String name;
     private int hp;
     private int maxHp;
-    protected Type type;
-    protected int basicAttack;
-    protected int specialAttack;
+    Type type;
+    int basicDamage;
+    int specialDamage;
 
-    protected Character(String name, int hp) {
+    Fighter(String name, int hp) {
         this.name = name;
         this.hp = hp;
         this.maxHp = hp;
@@ -26,7 +27,7 @@ public abstract class Character {
      */
     public Type getType() { return type; }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
@@ -75,32 +76,55 @@ public abstract class Character {
 
     /**
      * Exercise the character's basic attack
+     * @param fighter the fighter to attack
      */
-    public abstract void basicAttack();
+    public void basicAttack(Fighter fighter) {
+        fighter.takeDamage(this.basicDamage);
+    }
 
     /**
      * Exercise the character's special attack
+     * @param fighter the character to attack
      */
-    public abstract void specialAttack();
-
-    /**
-     * Deal damage to another character
-     * @param character the character to deal damage to
-     */
-    public abstract void dealDamage(Character character);
+    public void specialAttack(Fighter fighter) {
+        double mult;
+        switch(this.compareTo(fighter)) {
+            case NEUTRAL:
+                mult = 1;
+                break;
+            case DOMINANT:
+                mult = 2;
+                break;
+            case STRONG:
+                mult = 1.5;
+                break;
+            case WEAK:
+                mult = 0.5;
+                break;
+            default:
+                mult = 1;
+        }
+        int damage = (int)(this.specialDamage * mult);
+        fighter.takeDamage(damage);
+    }
 
     /**
      * Take damage after an attack
      * @param damage the amount of damage to take
      */
-    public abstract void takeDamage(int damage);
+    public void takeDamage(int damage) {
+        if(this.hp - damage <= 0)
+            this.hp = 0;
+        else
+            this.hp -= damage;
+    }
 
     /**
      * Determine a character's strength in relation to its opponent's
      * type; certain matchups are more advantageous than others.
-     * @param character the other character
-     * @return the appropriate member of {@link sam.fightergame.characters.Matchup}
+     * @param fighter the other fighter
+     * @return the appropriate member of {@link sam.fightergame.fighters.Matchup}
      */
-    public abstract Matchup compareTo(Character character);
+    public abstract Matchup compareTo(Fighter fighter);
 
 }
