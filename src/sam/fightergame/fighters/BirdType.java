@@ -44,7 +44,6 @@ public class BirdType extends Fighter {
                 return Matchup.STRONG;
             case GROUND:
                 return Matchup.DOMINANT;
-            case BIRD:
             default:
                 return Matchup.NEUTRAL;
         }

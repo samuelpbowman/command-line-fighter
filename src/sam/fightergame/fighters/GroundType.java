@@ -45,7 +45,6 @@ public class GroundType extends Fighter {
 				return Matchup.DOMINANT;
 			case WATER:
 				return Matchup.WEAK;
-			case GROUND:
 			default:
 				return Matchup.NEUTRAL;
 		}
