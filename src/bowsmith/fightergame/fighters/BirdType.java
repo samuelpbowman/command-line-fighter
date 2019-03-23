@@ -1,4 +1,4 @@
-package sam.fightergame.fighters;
+package bowsmith.fightergame.fighters;
 
 /**
  * Concrete implementation of a character

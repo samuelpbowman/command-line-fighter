@@ -1,10 +1,10 @@
-package sam.fightergame.fighters;
+package bowsmith.fightergame.fighters;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BirdTypeTest {
+class FireTypeTest {
 
     @BeforeEach
     void setUp() {

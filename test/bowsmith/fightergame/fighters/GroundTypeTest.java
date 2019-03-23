@@ -1,4 +1,4 @@
-package sam.fightergame.fighters;
+package bowsmith.fightergame.fighters;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

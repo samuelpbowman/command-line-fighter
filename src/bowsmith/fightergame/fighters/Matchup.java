@@ -1,4 +1,4 @@
-
+package bowsmith.fightergame.fighters;
 
 /**
  * The levels of advantage or disadvantage

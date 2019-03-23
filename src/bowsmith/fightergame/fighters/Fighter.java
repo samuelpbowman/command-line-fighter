@@ -1,4 +1,4 @@
-
+package bowsmith.fightergame.fighters;
 
 /**
  * Abstract class representing a character object
@@ -123,7 +123,7 @@ public abstract class Fighter {
      * Determine a character's strength in relation to its opponent's
      * type; certain matchups are more advantageous than others.
      * @param fighter the other fighter
-     * @return the appropriate member of {@link sam.fightergame.fighters.Matchup}
+     * @return the appropriate member of {@link Matchup}
      */
     public abstract Matchup compareTo(Fighter fighter);
 

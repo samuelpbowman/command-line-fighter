@@ -1,4 +1,4 @@
-
+package bowsmith.fightergame;
 
 public class FighterGame {
 

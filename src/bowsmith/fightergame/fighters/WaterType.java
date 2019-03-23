@@ -1,4 +1,4 @@
-
+package bowsmith.fightergame.fighters;
 
 /**
  * Concrete implementation of a character
@@ -49,7 +49,6 @@ public class WaterType extends Fighter {
                 return Matchup.WEAK;
             case GROUND:
                 return Matchup.STRONG;
-            case WATER:
             default:
                 return Matchup.NEUTRAL;
         }

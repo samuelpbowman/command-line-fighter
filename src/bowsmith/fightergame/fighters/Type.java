@@ -1,4 +1,4 @@
-package sam.fightergame.fighters;
+package bowsmith.fightergame.fighters;
 
 /**
  * Different types that a character can be
@@ -11,5 +11,7 @@ public enum Type {
 	/** Bird Type */
 	BIRD,
 	/** Ground Type */
-	GROUND
+	GROUND,
+	/** Psychic Type */
+	PSYCHIC
 }

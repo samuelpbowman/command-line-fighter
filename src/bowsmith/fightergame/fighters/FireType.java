@@ -1,4 +1,4 @@
-
+package bowsmith.fightergame.fighters;
 
 /**
  * Concrete implementation of a character
@@ -44,7 +44,6 @@ public class FireType extends Fighter {
                 return Matchup.DOMINANT;
             case GROUND:
                 return Matchup.STRONG;
-            case FIRE:
             default:
                 return Matchup.NEUTRAL;
         }
